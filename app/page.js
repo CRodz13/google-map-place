@@ -1,4 +1,5 @@
 "use client"
+import CategoryList from '@/components/Home/CategoryList';
 import { signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react'
@@ -13,9 +14,11 @@ export default function Home() {
     }
   }, [session])
   return (
-    <div>
-      <h2>Home</h2>
-      <button onClick={() => signOut()}>SignOut</button>
+    <div className='grid grid-cols-4 h-screen'>
+      <div className='p-3'>
+        <CategoryList />
+      </div>
+      <div className=' col-span-3'>Second</div>
     </div>
   )
 }

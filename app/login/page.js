@@ -1,27 +1,26 @@
-"use client"
+"use client";
 import { signIn, useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 function Login() {
-    const {data:session} = useSession();
-    const router = useRouter();
-    useEffect(()=> {
-        console.log("session:", session);
-        if(session?.user)
-        {
-            router.push("/");
-        }
-    },[session])
+  const { data: session } = useSession();
+  const router = useRouter();
+  useEffect(() => {
+    console.log("session:", session);
+    if (session?.user) {
+      router.push("/");
+    }
+  }, [session]);
 
   return (
     <div className="flex flex-col justify-center items-center mt-[10%] gap-10">
-      <Image src="/logo.png" alth="logo" width={100} height={100} />
+      <Image src="/logo.png" alt="logo" width={100} height={100} />
       <div className="px-6 sm:px-0 max-w-sm ">
         <button
           type="button"
-          onClick={()=>signIn()}
+          onClick={() => signIn()}
           className="text-white w-full 
      bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4
       focus:outline-none focus:ring-[#4285F4]/50 
